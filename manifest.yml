@@ -1,5 +1,5 @@
 applications:
-- name: Kitura-Starter
+- name: serversideswift-net
   memory: 256M
   instances: 1
   disk_quota: 1024M
