@@ -18,6 +18,8 @@ import Kitura
 import SwiftyJSON
 import LoggerAPI
 import CloudFoundryEnv
+import KituraMarkdown
+import KituraStencil
 
 public class Controller {
 
@@ -37,6 +39,15 @@ public class Controller {
 
     // All web apps need a Router instance to define routes
     router = Router()
+
+    router.add(templateEngine: StencilTemplateEngine())
+
+    router.get("/") { _, response, next in
+        let body = try! KituraMarkdown().render(filePath: "\(self.router.viewsPath)index.md", context: [String:Any]())
+        try response.render("layout.stencil", context: [ "body" : body ])
+        response.status(.OK)
+        next()
+    }
 
     // Serve static content from "public"
     router.all("/", middleware: StaticFileServer())
