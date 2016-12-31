@@ -43,10 +43,15 @@ public class Controller {
     router.add(templateEngine: StencilTemplateEngine())
 
     router.get("/") { _, response, next in
-        let body = try! KituraMarkdown().render(filePath: "\(self.router.viewsPath)index.md", context: [String:Any]())
-        try response.render("layout.stencil", context: [ "body" : body ])
-        response.status(.OK)
-        next()
+      try self.renderMarkdown(response: response, filename: "index")
+      next()
+    }
+
+    router.get("/:id") { request, response, next in
+      if let id = Int(request.parameters["id"] ?? "") {
+        try self.renderMarkdown(response: response, filename: String(id))
+      }
+      next()
     }
 
     // Serve static content from "public"
@@ -90,4 +95,9 @@ public class Controller {
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
+  private func renderMarkdown(response: RouterResponse, filename: String) throws {
+    let body = try KituraMarkdown().render(filePath: "\(router.viewsPath)\(filename).md", context: [String:Any]())
+    try response.render("layout.stencil", context: [ "body" : body ])
+    response.status(.OK)
+  }
 }
