@@ -3,6 +3,8 @@ Packages/*
 Kitura-Starter.xcodeproj/project.xcworkspace/xcuserdata/
 Kitura-Starter.xcodeproj/xcuserdata/
 Kitura-Starter.xcodeproj/
+node_modules/
+npm-debug.log
 .DS_Store
 *~
 .*.sw*

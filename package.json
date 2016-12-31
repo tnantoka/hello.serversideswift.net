@@ -1,0 +1,10 @@
+{
+  "name": "serversideswift.net",
+  "scripts": {
+    "lint": "textlint -f pretty-error Views/*.md; exit 0"
+  },
+  "devDependencies": {
+    "textlint": "^7.2.1",
+    "textlint-rule-preset-ja-technical-writing": "^0.1.3"
+  }
+}
