@@ -2,3 +2,7 @@ body {
   color: rbga(0, 0, 0, 0.87);
   margin: 2rem;
 }
+
+.ad {
+  margin-bottom: 2rem;
+}

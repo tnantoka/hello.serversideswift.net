@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <div class="ad">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- SSS -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7033544542206385"
+         data-ad-slot="3929300059"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <div class="markdown-body">{{ body }}</div>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
