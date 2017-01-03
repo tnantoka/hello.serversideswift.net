@@ -1,7 +1,7 @@
 # サーバーサイドSwiftをはじめてみよう
 
 2015年12月3日、約束通りSwiftはオープンソース化され、翌2016年にはLinux対応版が正式にリリースされました。  
-今まではApple製品のアプリ開発にしか使えなかったSwiftが、他のプラットフォームでも動くようになったのです。  
+それまではApple製品用のアプリ開発にしか使えなかったSwiftが、他のプラットフォームでも動くようになったのです。  
 この記事はそのSwiftを使ったWebアプリ開発（＝**サーバーサイドSwift**）の入門編です。
 
 もちろんこのサイト自体もSwiftで動いています。
@@ -31,7 +31,7 @@
 
 ## なぜサーバサイドSwiftか
 
-これは[Swift、Java、Node.js、Ruby、どれを使いますか？サーバーサイドSwiftの優れた点について](https://realm.io/jp/news/tryswift-chris-robert-end-to-end-application-development-swift-backend/)など様々なところで語られています。  
+これは、[Swift、Java、Node.js、Ruby、どれを使いますか？サーバーサイドSwiftの優れた点について](https://realm.io/jp/news/tryswift-chris-robert-end-to-end-application-development-swift-backend/)など様々なところで語られています。  
 主な利点として挙げられているのは、パフォーマンスや省メモリ、isomorphic、タイプセーフなどです。
 
 これらの他に個人的にサーバーサイドSwiftのメリットだと思っているのが、**iOSアプリしか書いたことのない人にとって学習のハードルが低い**という点です。
@@ -58,13 +58,13 @@ Googleで検索してみると、以下の事例が見つかりましたが、�
 
 このNS*.comシリーズは`NSDateFormatter`や`NSRegularExpression`を実際にSwiftで動かし、その結果をブラウザ上で見ることができるものです。  
 これらを僕は**Server-side Swift as Live Example**と勝手に呼んでいて、この分野はわりと価値があるのではないかと考えています。  
-Playgroundや[IBM Swift Sandbox](https://swiftlang.ng.bluemix.net/#/repl)は確かに手軽ですが、ブラウザ上でさっと確認できるのはやはりいいものです。
+Playgroundや[IBM Swift Sandbox](https://swiftlang.ng.bluemix.net/#/repl)は確かに手軽ですが、コードを打たずにブラウザ上でさっと確認できるのはやはりいいものです。
 
 これらの影響を受けて、拙作の[StringFilter](https://github.com/tnantoka/StringFilter)というライブラリは、[オンラインで試せる](https://stringfilter.herokuapp.com/)ようにしています。  
-UIKitと関係のないiOSライブラリの作者さんには是非やってみてほしいです。
+UIKitに依存しないライブラリの作者さんには是非やってみてほしいと思っています。
 
-さて前置きはこれぐらいにしておきます。
-サーバーサイドSwiftに興味が湧いた人は、次から早速手を動かしてみましょう。
+さて前置きはこれぐらいにしておきます。  
+サーバーサイドSwiftに興味が湧いたという方は、次から早速手を動かしてみましょう。
 
 ## 作ってみよう
 
@@ -84,14 +84,14 @@ NS*.comシリーズを参考に、NSURLをオンラインで確認できるも�
 
 ### Webフレームワーク
 
-[たくさんのプロジェクト](https://github.com/search?o=desc&q=swift%20web&s=stars&type=Repositories)がありますが、特に人気があるのは以下の3つでしょうか。 
-[Server APIs Project](https://swift.org/server-apis/)という動きもあり気になるところですが、この辺りのメジャーなものはメンテナンスが続いていくと思われるので、好みで選んでよいでしょう。
+[たくさんのプロジェクト](https://github.com/search?o=desc&q=swift%20web&s=stars&type=Repositories)がありますが、特に人気があるのは以下の3つでしょうか。  
+[Server APIs Project](https://swift.org/server-apis/)という動きもあり気になるところですが、メジャーなものは公式APIに合わせた形でメンテナンスが続くと思われるので、好みで選んでよいでしょう。
 
 - [Perfect](https://github.com/PerfectlySoft/Perfect)
 - [Vapor](https://github.com/vapor/vapor)
 - [Kitura](https://github.com/IBM-Swift/Kitura)
 
-この記事では手軽に使えて、公式ツールでHerokuに簡単にdeployできるVaporを使います。  
+この記事では手軽に使えて、公式ツールでHerokuに簡単にデプロイできるVaporを使います。  
 ちなみに、このサイトはKituraで動いています。
 
 Perfectはちょっとがっつりしているので今回は遠慮しておきます。
@@ -188,10 +188,10 @@ drop.resource("posts", PostController())
 
 ### `/parse`の追加
 
-`?url=`というクエリストリングで渡されたURLを解析するRouteを追加します。
+`?url=`というクエリストリングで渡されたURLを解析する`/parse`というRouteを追加します。
 
 main.swiftに色々書くと自動テストがしづらくなるので、分割します。  
-ここではDropletにexntensionとして追加することにします。  
+ここではDropletにExtensionとして追加することにします。  
 なお、ファイルを追加する時にデフォルトで選択されている`Core`ターゲットを選ばないように注意しましょう。
 
 #### Sources/App/Droplet+Setup.swift
@@ -230,7 +230,7 @@ public extension Droplet {
 
 ### parse処理の実装
 
-こちらもURLのextensionとして実装します。  
+こちらもURLのExtensionとして実装します。  
 parseした結果を配列に格納します。  
 VaporではViewに渡す値（context）を`Node`というenumに入れる必要があるので、その形式で返しています。
 
@@ -308,7 +308,8 @@ extension URL {
 
 ### Viewの実装
 
-[Bootstrap](http://getbootstrap.com/)を追加し、URL入力欄などを表示できるようにViewを変更します。
+[Bootstrap](http://getbootstrap.com/)を追加し、URL入力欄などを表示できるようにViewを変更します。  
+CSSなどは本来`base.leaf`に追加して共通化すべきでしょうが、ここでは`welcom.leaf`で全て済ませることにします。
 
 #### Resources/Views/welcome.leaf
 
@@ -357,7 +358,7 @@ extension URL {
 
 ### 細かい調整
 
-公開するために細かい調整をします。
+公開するために細かい部分を修正します。
 
 - スタイルの調整
 - `/`にExamplesを追加
@@ -372,12 +373,12 @@ extension URL {
 せっかくなのでテストを追加しておきましょう。  
 「こうした方がもっとSwiftらしいかなぁ」といった時に、テストがあると気軽にリファクタリングができます。
 
-[ドキュメント](https://vapor.github.io/documentation/testing/basic.html)のまま進めるとうまく行かず困りましたが、以下を参考に、NSURLFrameworkにソースを分けるとうまくいきました。  
+[ドキュメント](https://vapor.github.io/documentation/testing/basic.html)のまま進めるとうまく行かず困りましたが、以下を参考に、`NSURLFramework`にソースを分けるとうまくいきました。  
 [Package support for testing by jakerockland · Pull Request #7 · jakerockland/Swisp](https://github.com/jakerockland/Swisp/pull/7/)
 
 #### Package.swift
 
-`Tests`が`exclude`されてるので削除しておきます。
+`Tests`が`exclude`されてるので削除しておきます。  
 また、各ターゲットの`dependencies`に`NSURLFramework`を追加します。
 
 ```
@@ -402,6 +403,8 @@ let package = Package(
 )
 ```
 
+#### Sources/NSURLFramework/
+
 以下のファイルを`Sources/NSURLFramework/`に移動します。
 
 - Droplet+Setup.swift
@@ -417,7 +420,9 @@ import NSURLFramework
 
 #### Tests/AppTests/AppTests.swift
 
-テストを書きます。
+テストを書きます。  
+`http://example.com/`を`/parse`に渡して、`host`と`scheme｀が正しく返ってきていることを確認しています。
+
 
 ```
 import XCTest
@@ -448,7 +453,7 @@ class AppTests: XCTestCase {
 }
 ```
 
-テストの実行はコマンドラインで行います。（設定すればXcodeでも可能です）
+テストの実行はコマンドラインで行います。（設定すればXcodeでも可能です）  
 `$ vapor test`はテストのエラーがわかりづらいので、僕は`$ swift test`を使っています。
 
 ```
@@ -470,7 +475,7 @@ Test Suite 'All tests' passed at 2017-01-01 22:46:28.305.
 
 ### CI
 
-Vaporのテンプレートには元々.travis.ymlが用意されているので、[Travis CI](https://travis-ci.org/)でのBuildも簡単にできます。
+Vaporのテンプレートには元々`.travis.yml`が用意されているので、[Travis CI](https://travis-ci.org/)でのBuildも簡単にできます。
 
 #### .swift-version
 
@@ -494,11 +499,11 @@ XCTMain([
 
 ```
 
-https://travis-ci.org/tnantoka/NSURL
+実際のBuild結果は、<https://travis-ci.org/tnantoka/NSURL>で確認できます。
 
 ### Herokuにデプロイ
 
-[Heroku CLI | Heroku Dev Center](https://devcenter.heroku.com/articles/heroku-cli)を入れておきます。
+事前に[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)を入れておきます。
 
 ```
 $ heroku --version
@@ -532,9 +537,9 @@ App is live on Heroku, visit
 https://nsurl.herokuapp.com/ | https://git.heroku.com/nsurl.git
 ```
 
-nsurl.herokuapp.comでアクセスできるようになります。
+これで、`http://nsurl.herokuapp.com/`でアクセスできるようになります。
 
-コードを更新した時は以下のコマンドで再度deployします。
+コードを更新した時は以下のコマンドで再度デプロイします。
 
 ```
 $ git push heroku master
@@ -554,7 +559,7 @@ The domain nsurl.serversideswift.net has been enqueued for addition
 
 記載されているとおりに、CNAME設定します。
 
-これで、<http://nsurl.serversideswift.net/>上でローカルと同じ物が動くようになりました。（os分岐した部分を除く）
+これで、`http://nsurl.serversideswift.net/`上でローカルと同じ物が動くようになりました。（os分岐した部分を除く）
  
 全体のコードはこちらにあります。  
 [tnantoka/NSURL](https://github.com/tnantoka/NSURL)
@@ -564,13 +569,35 @@ The domain nsurl.serversideswift.net has been enqueued for addition
 
 ### おまけ
 
-このサイトの作り方も手順化してみました。  
+このサイトの作り方もまとめてみました。目次は以下のとおりです。
+
+- Kitura-Starter
+- Xcode
+- Markdownでコンテンツを書けるようにする
+  - Package.swift
+  - Sources/Kitura-Starter/Controller.swift
+- Textlintの導入
+  - package.json
+  - .textlintrc
+  - 細かい調整
+- デプロイ
+  - 準備
+- クレジットカード情報の登録
+- スペースの作成
+  - 公開
+    - ログイン
+    - buildpacksの確認
+    - manifest.yml
+    - push
+  - 独自ドメインの設定
+
 Gumroadで0円からダウンロードできますので、興味があれば是非お試しください。
 
-目次はこんな感じです。
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<a class="gumroad-button" href="https://gum.co/JMCd" target="_blank">ダウンロード</a>
 
 この記事を含め原稿はGitHub上にありますので、お気軽にPull RequsetやIssue登録してください。  
 日本語で問題ありません。  
-[tnantoka/NSURL](https://github.com/tnantoka/NSURL)
+[tnantoka/serversideswift.net](https://github.com/tnantoka/serversideswift.net)
 
 
