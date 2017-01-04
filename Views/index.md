@@ -9,7 +9,7 @@
 <table>
   <tr>
     <th>更新日</th>
-    <td>2016/1/3</td>
+    <td>2017/1/4</td>
   </tr>
   <tr>
     <th>Xcode</th>
