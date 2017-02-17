@@ -421,7 +421,7 @@ import NSURLFramework
 #### Tests/AppTests/AppTests.swift
 
 テストを書きます。  
-`http://example.com/`を`/parse`に渡して、`host`と`scheme｀が正しく返ってきていることを確認しています。
+`http://example.com/`を`/parse`に渡して、`host`と`scheme`が正しく返ってきていることを確認しています。
 
 
 ```
