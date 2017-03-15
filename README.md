@@ -2,4 +2,4 @@
 
 Learning Server-side Swift.
 
-http://www.serversideswift.net/ 
+http://hello.serversideswift.net/ 
