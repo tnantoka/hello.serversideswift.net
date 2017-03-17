@@ -9,7 +9,7 @@
 <table>
   <tr>
     <th>更新日</th>
-    <td>2017/1/4</td>
+    <td>2017/3/18</td>
   </tr>
   <tr>
     <th>Xcode</th>
@@ -591,13 +591,8 @@ The domain nsurl.serversideswift.net has been enqueued for addition
     - push
   - 独自ドメインの設定
 
-Gumroadで0円からダウンロードできますので、興味があれば是非お試しください。
-
-<script src="https://gumroad.com/js/gumroad.js"></script>
-<a class="gumroad-button" href="https://gum.co/JMCd" target="_blank">ダウンロード</a>
+興味のある方は<http://hello.serversideswift.net/1>から御覧ください。
 
 この記事を含め原稿はGitHub上にありますので、お気軽にPull RequsetやIssue登録してください。  
 日本語で問題ありません。  
-[tnantoka/serversideswift.net](https://github.com/tnantoka/serversideswift.net)
-
-
+[tnantoka/hello.serversideswift.net](https://github.com/tnantoka/hello.serversideswift.net)
